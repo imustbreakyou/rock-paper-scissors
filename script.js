@@ -32,9 +32,9 @@ function getComputerChoice () {
 
     let computerChoice;
 
-    if (randomNumber === 0) {
+    if (randomNum === 0) {
         computerChoice = 'rock';
-    } else if (randomNumber === 1) {
+    } else if (randomNum === 1) {
         computerChoice = 'paper';
     } else {
         computerChoice = 'scissors';
@@ -55,6 +55,7 @@ function playRound(choice) {
     if (userChoice == computerChoice) {
         outcome = 'tie!';
         displayRoundOutcome.textContent = "Round Outcome: " + outcome;
+        
     } else if (userChoice == 'rock' && computerChoice == 'scissors' || userChoice == 'paper' && computerChoice == 'rock' ||userChoice == 'scissors' && computerChoice == 'paper') {
         outcome = 'User Win!';
         displayRoundOutcome.textContent = "Round Outcome: " + outcome;
