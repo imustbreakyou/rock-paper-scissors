@@ -2,7 +2,14 @@
 const displayComputerChoice = document.querySelector("#computer-choice");
 const displayUserChoice = document.querySelector("#user-choice");
 const displayRoundOutcome = document.querySelector("#round-outcome");
+const displayUserWins = document.querySelector("#user-wins");
+const displayComputerWins= document.querySelector("#computer-wins");
+const gameOver = document.querySelector("#game-over");
 
+let gameOutcome = document.querySelector("#game-outcome");
+
+let userWinCounter = 0;
+let computerWinCounter = 0;
 
 
 document.getElementById('rock').addEventListener('click', function() {
@@ -58,12 +65,33 @@ function playRound(choice) {
         
     } else if (userChoice == 'rock' && computerChoice == 'scissors' || userChoice == 'paper' && computerChoice == 'rock' ||userChoice == 'scissors' && computerChoice == 'paper') {
         outcome = 'User Win!';
+        userWinCounter++;
+        displayUserWins.textContent = "Total User Wins: " + userWinCounter;
         displayRoundOutcome.textContent = "Round Outcome: " + outcome;
     } else {
         outcome = 'Computer Win!';
+        computerWinCounter++;
+        displayComputerWins.textContent = "Total Computer Wins: " + computerWinCounter;
         displayRoundOutcome.textContent = "Round Outcome: " + outcome;
-    }
-        
+    }       
 
-    console.log("user choice: ", userChoice, " computer Choice:", computerChoice)
+    
+    if (computerWinCounter == 5 || userWinCounter == 5) {
+
+        gameOver.textContent = "Game Over!";
+        if (computerWinCounter > userWinCounter) {
+            winner = "computer wins!";
+            gameOutcome.textContent = winner;
+            
+            
+
+        } else {
+            winner = "user wins!"
+            gameOutcome.textContent = winner;
+            
+        }
+        
+    }
+    console.log("user choice: ", userChoice, " computer Choice:", computerChoice);
+     
 }
